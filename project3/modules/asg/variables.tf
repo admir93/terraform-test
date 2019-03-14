@@ -11,3 +11,5 @@ variable "sg_ids" {}
 variable "ami_id" {}
 
 variable "asg_name" {}
+
+variable "new_ami" {}
