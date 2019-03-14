@@ -37,6 +37,7 @@ module "ami" {
   webapp_ec2_id = "${data.terraform_remote_state.project2.webapp_ec2_id}"
   project = "${var.project}"
   environment = "${var.environment}"
+  new_ami = "${var.new_ami}"
 }
 
 module "asg" {
@@ -50,10 +51,6 @@ module "asg" {
   instance_type = "${var.instance_type}"
   key_name = "${var.key_name}"
   asg_name = "${data.terraform_remote_state.project1.asg_name}"
-}
+  new_ami = "${var.new_ami}"
 
-#module "script" {
-#  source = "modules/script"
-#  lc_name = "${module.asg.lc_name}"
-#  asg_name = "${data.terraform_remote_state.project1.asg_name}"
-#}
+}
